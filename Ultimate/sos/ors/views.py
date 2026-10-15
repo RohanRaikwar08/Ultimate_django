@@ -19,6 +19,7 @@ from .ctl.student_ctl import StudentCtl
 from .ctl.student_list_ctl import StudentListCtl
 from .ctl.marksheet_ctl import MarksheetCtl
 from .ctl.marksheet_list_ctl import MarksheetListCtl
+from .ctl.forgetpassword_ctl import ForgetPasswordCtl
 from .utility.html_utility import HtmlUtility
 
 
