@@ -29,10 +29,12 @@ class LoginCtl(BaseCtl):
 
     def submit(self, request, params={}):
 
-        user = self.get_service().authenticate(self.form['login_id'], self.form['password'])
+        user_data = self.get_service().authenticate(self.form['login_id'], self.form['password'])
 
-        if user:
-            request.session['first_name'] = user.first_name
+        if user_data:
+            request.session['first_name'] = user_data.first_name
+            request.session['id'] = user_data.id
+
             return redirect('/ors/Welcome/')
         else:
             self.form['message'] = 'Login ID & Password Invalid'

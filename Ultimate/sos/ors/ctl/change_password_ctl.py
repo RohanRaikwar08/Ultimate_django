@@ -40,6 +40,21 @@ class ChangePasswordCtl(BaseCtl):
         return render(request, self.get_template(), {'form': self.form})
 
     def submit(self, request, params={}):
+        id = request.session['id']
+        user = self.get_service().get(id)
+
+        new_password = request.POST.get("newPassword", '')
+        confirm_password = request.POST.get("confirmPassword", '')
+
+        if request.POST.get('oldPassword') != user.password:
+            self.form['message'] = "Old Password is incorrect"
+            self.form['error'] = True
+        else:
+            if  new_password == confirm_password:
+                user.password = new_password
+                self.get_service().save(user)
+                self.form['message'] = "Password Change Successfully...!!!"
+
         return render(request, self.get_template(), {'form': self.form})
 
     def get_service(self):
