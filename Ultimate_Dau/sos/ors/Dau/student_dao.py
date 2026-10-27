@@ -15,9 +15,9 @@ class StudentDAO(BaseDAO):
         return "Student Name"
 
     def get_where_clause(self, query, params):
-        value = params.get("name", "")
+        value = params.get("first_name", "")
 
         if DataValidator.is_not_null(value):
-            query = query.filter(name__istartswith=value.strip())
+            query = query.filter(first_name__istartswith=value)
 
         return query

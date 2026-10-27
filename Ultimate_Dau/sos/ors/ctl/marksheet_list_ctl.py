@@ -6,7 +6,7 @@ from .base_ctl import BaseCtl
 class MarksheetListCtl(BaseCtl):
 
     def request_to_form(self, request):
-        self.form['name'] = request.POST.get('name')
+        self.form['student_name'] = request.POST.get('student_name')
 
     def display(self, request, params={}):
 

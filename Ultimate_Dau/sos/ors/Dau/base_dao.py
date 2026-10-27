@@ -48,10 +48,7 @@ class BaseDAO(ABC):
 
         return page_obj
 
-    def find_by_unique_key(self, obj):
-        key = self.get_unique_key()
-        value = getattr(obj, key)
-
+    def find_by_unique_key(self, key, value):
         objs = self.get_model().objects.filter(**{key: value})
         return objs
 

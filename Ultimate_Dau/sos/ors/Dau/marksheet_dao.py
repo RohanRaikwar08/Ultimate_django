@@ -15,9 +15,9 @@ class MarksheetDAO(BaseDAO):
         return "Roll Numbers"
 
     def get_where_clause(self, query, params):
-        value = params.get("name", "")
+        value = params.get("student_name", "")
 
         if DataValidator.is_not_null(value):
-            query = query.filter(name__istartswith=value.strip())
+            query = query.filter(student_name__istartswith=value)
 
         return query

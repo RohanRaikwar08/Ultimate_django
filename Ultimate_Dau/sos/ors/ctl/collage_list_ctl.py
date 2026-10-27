@@ -7,7 +7,7 @@ from ..service.collage_service import CollageService
 class CollageListCtl(BaseCtl):
 
     def request_to_form(self, request):
-        self.form['collage_name'] = request.POST.get('collage_name')
+        self.form['name'] = request.POST.get('name')
 
     def display(self, request, params={}):
 

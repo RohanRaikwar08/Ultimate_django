@@ -18,6 +18,6 @@ class UserDAO(BaseDAO):
         value = params.get("first_name", "")
 
         if DataValidator.is_not_null(value):
-            query = query.filter(first_name__istartswith=value.strip)
+            query = query.filter(first_name__istartswith=value)
 
         return query
