@@ -1,5 +1,8 @@
 from .base_service import BaseService
 from ..Dau.user_dao import UserDAO
+from ..mail.email_builder import EmailBuilder
+from ..mail.email_details import EmailDetails
+from ..mail.email_service import EmailService
 
 from ..models import User
 
@@ -21,3 +24,13 @@ class UserService(BaseService):
                 return None
         else:
             return None
+
+    def register_user(self, obj):
+        self.save(obj)
+
+        details = EmailDetails()
+        details.to = [obj.login_id]
+        details.subject = 'User Registration Successfully !!'
+        details.text = EmailBuilder.sign_up(obj)
+
+        EmailService.send(details)
