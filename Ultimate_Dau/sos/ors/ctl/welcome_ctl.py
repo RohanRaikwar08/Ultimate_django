@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from .base_ctl import BaseCtl
+from ..service.user_service import UserService
 
 
 class WelcomeCtl(BaseCtl):

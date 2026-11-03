@@ -52,7 +52,7 @@ class ChangePasswordCtl(BaseCtl):
         else:
             if  new_password == confirm_password:
                 user.password = new_password
-                self.get_service().save(user)
+                self.get_service().user_change_password(user)
                 self.form['message'] = "Password Change Successfully...!!!"
 
         return render(request, self.get_template(), {'form': self.form})

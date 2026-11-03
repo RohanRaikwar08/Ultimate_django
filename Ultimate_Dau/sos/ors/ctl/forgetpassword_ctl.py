@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from .base_ctl import BaseCtl
 from ..utility.data_validator import DataValidator
-from ..service.forgetpassword_service import ForgetPasswordService
+from ..service.user_service import UserService
 
 
 class ForgetPasswordCtl(BaseCtl):
@@ -24,21 +24,21 @@ class ForgetPasswordCtl(BaseCtl):
         return render( request,self.get_template(),{'form': self.form})
 
     def submit(self, request, params={}):
-        users = self.get_service().find_by_login(self.form['login_id'])
 
-        user = users.first()  # QuerySet se pehla user milega
+        try:
+            self.get_service().forget_password(self.form['login_id'])
 
-        if user is not None:
-            self.form['message'] = 'Your password is: ' + str(user.password)
             self.form['error'] = False
-        else:
-            self.form['message'] = 'Login ID does not exist'
+            self.form['message'] = 'Password sent to your registered email successfully.'
+
+        except Exception as e:
+            self.form['message'] = str(e)
             self.form['error'] = True
 
-        return self.display(request)
-
-    def get_service(self):
-        return ForgetPasswordService()
+        return render(request, self.get_template(), {'form': self.form})
 
     def get_template(self):
         return 'forget_password.html'
+
+    def get_service(self):
+        return UserService()

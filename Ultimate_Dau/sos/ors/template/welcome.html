@@ -1,21 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{% include "header.html" %}
-<br><br><br><br><br><br><br><br><br><br><br><br>
-<div align="center">
-    <h1> Welcome To My Django Project</h1>
+{% include  "./Header.html"%}
+<div class="container">
+    <style>
+        mark {
+            background-color: #e3f1fca1;
 
-    {% if firstName == None %}
-    <h3> welcome , guest</h3>
-    {% else %}
-    <h3> welcome , {{ firstName }}</h3>
-    {% endif %}
+            -webkit-box-shadow: 2px 9px 38px -1px rgba(139, 229, 232, 1);
+            -moz-box-shadow: 2px 9px 38px -1px rgba(139, 229, 232, 1);
+            box-shadow: 2px 9px 38px -1px rgba(139, 229, 232, 1);
+        }
+    </style>
+
+    <div class="d-flex" style="margin-top: 15%">
+        <div class="mx-auto">
+            <p>
+            <h1>
+                <mark>Welcome to "ONLINE RESULT SYSTEM"</mark>
+            </h1>
+            </p>
+            <h6>{{form.message}}</h6>
+
+        </div>
+    </div>
 </div>
-
-</body>
-</html>
+{% include "./Footer.html"%}
