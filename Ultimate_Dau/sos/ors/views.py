@@ -21,6 +21,8 @@ from .ctl.marksheet_ctl import MarksheetCtl
 from .ctl.marksheet_list_ctl import MarksheetListCtl
 from .ctl.forgetpassword_ctl import ForgetPasswordCtl
 from .ctl.change_password_ctl import ChangePasswordCtl
+from .ctl.online_shopping_ctl import Online_ShoppingCtl
+from .ctl.online_shopping_list_ctl import Online_Shopping_List_Ctl as Online_ShoppingListCtl
 from .utility.html_utility import HtmlUtility
 
 

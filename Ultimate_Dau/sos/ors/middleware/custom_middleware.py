@@ -9,7 +9,7 @@ class FrontCtlMiddleware:
     def __call__(self, request):
         print('Front Ctl Middleware')
 
-        if request.path_info in ['/', '/ors/signin/', '/ors/Registration/', '/ors/welcome/', '/ors/ForgetPassword/', '/ors/logout/']:
+        if request.path_info in ['/', '/ors/Login/', '/ors/Registration/', '/ors/Welcome/', '/ors/ForgetPassword/', '/ors/logout/']:
             return self.get_response(request)
 
         if request.session.get('first_name', None) == None:

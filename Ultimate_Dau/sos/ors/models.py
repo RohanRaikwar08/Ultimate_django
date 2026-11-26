@@ -148,3 +148,15 @@ class Marksheet(DropdownItem, models.Model):
         db_table = 'sos_marksheet'
 
 
+class Online_Shopping(models.Model):
+    product_id = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    price = models.FloatField()
+    category = models.CharField(max_length=20)
+    stock = models.IntegerField()
+
+    class Meta:
+        db_table = 'sos_shopping'
+
+
+
